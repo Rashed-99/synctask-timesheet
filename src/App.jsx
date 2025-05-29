@@ -1,5 +1,4 @@
 
-import TimesheetWidget from './components/TimesheetWidget.js';
 import { Windows11Layout } from "./components/Windows11Layout";
 function App() {
   const [count, setCount] = useState(0)
