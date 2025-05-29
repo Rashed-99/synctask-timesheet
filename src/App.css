@@ -1,254 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Windows 11 App</title>
-    <!-- Fluent UI Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fluentui-system-icons/1.1.192/assets/fluent-systems-filled.min.css">
-    <style>
-        :root {
-            --win11-bg: #202020;
-            --win11-card: #2b2b2b;
-            --win11-accent: #0078d4;
-            --win11-text: #ffffff;
-            --win11-text-secondary: #a0a0a0;
-            --win11-border: #404040;
-            --win11-hover: #383838;
-            --win11-radius: 8px;
-            --win11-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        }
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
 
-        body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background-color: var(--win11-bg);
-            color: var(--win11-text);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            min-height: 100vh;
-        }
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
 
-        .sidebar {
-            width: 240px;
-            background-color: var(--win11-card);
-            padding: 16px;
-            box-shadow: var(--win11-shadow);
-            display: flex;
-            flex-direction: column;
-        }
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 
-        .nav-item {
-            display: flex;
-            align-items: center;
-            padding: 10px 12px;
-            border-radius: var(--win11-radius);
-            margin-bottom: 4px;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
 
-        .nav-item:hover {
-            background-color: var(--win11-hover);
-        }
+.card {
+  padding: 2em;
+}
 
-        .nav-item.active {
-            background-color: var(--win11-accent);
-        }
-
-        .nav-icon {
-            margin-right: 12px;
-            font-size: 16px;
-        }
-
-        .main-content {
-            flex: 1;
-            padding: 24px;
-        }
-
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
-            background-color: var(--win11-card);
-            border-radius: var(--win11-radius);
-            padding: 20px;
-            box-shadow: var(--win11-shadow);
-            transition: transform 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-        }
-
-        .card-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 16px;
-        }
-
-        .card-icon {
-            font-size: 24px;
-            margin-right: 12px;
-            color: var(--win11-accent);
-        }
-
-        .card-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin: 0;
-        }
-
-        .card-content {
-            color: var(--win11-text-secondary);
-            font-size: 14px;
-        }
-
-        .top-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 24px;
-        }
-
-        .search-bar {
-            background-color: var(--win11-card);
-            border-radius: var(--win11-radius);
-            padding: 8px 16px;
-            display: flex;
-            align-items: center;
-            width: 300px;
-        }
-
-        .search-input {
-            background: transparent;
-            border: none;
-            color: var(--win11-text);
-            margin-left: 8px;
-            flex: 1;
-            font-family: inherit;
-        }
-
-        .search-input:focus {
-            outline: none;
-        }
-
-        .user-profile {
-            display: flex;
-            align-items: center;
-        }
-
-        .avatar {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background-color: var(--win11-accent);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: 16px;
-        }
-    </style>
-</head>
-<body>
-    <div class="sidebar">
-        <div class="nav-item active">
-            <i class="nav-icon fsf-home"></i>
-            <span>Home</span>
-        </div>
-        <div class="nav-item">
-            <i class="nav-icon fsf-apps"></i>
-            <span>Applications</span>
-        </div>
-        <div class="nav-item">
-            <i class="nav-icon fsf-settings"></i>
-            <span>Settings</span>
-        </div>
-        <div class="nav-item">
-            <i class="nav-icon fsf-people"></i>
-            <span>Contacts</span>
-        </div>
-        <div class="nav-item">
-            <i class="nav-icon fsf-mail"></i>
-            <span>Messages</span>
-        </div>
-        <div style="flex: 1;"></div>
-        <div class="nav-item">
-            <i class="nav-icon fsf-power"></i>
-            <span>Logout</span>
-        </div>
-    </div>
-
-    <div class="main-content">
-        <div class="top-bar">
-            <div class="search-bar">
-                <i class="fsf-search"></i>
-                <input type="text" class="search-input" placeholder="Search...">
-            </div>
-            <div class="user-profile">
-                <span>John Doe</span>
-                <div class="avatar">
-                    <i class="fsf-person" style="font-size: 16px;"></i>
-                </div>
-            </div>
-        </div>
-
-        <h1>Dashboard</h1>
-        
-        <div class="card-grid">
-            <div class="card">
-                <div class="card-header">
-                    <i class="card-icon fsf-data-pie"></i>
-                    <h3 class="card-title">Statistics</h3>
-                </div>
-                <div class="card-content">
-                    View your application statistics and performance metrics.
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <i class="card-icon fsf-calendar"></i>
-                    <h3 class="card-title">Calendar</h3>
-                </div>
-                <div class="card-content">
-                    Check your upcoming events and schedule new meetings.
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <i class="card-icon fsf-task-list"></i>
-                    <h3 class="card-title">Tasks</h3>
-                </div>
-                <div class="card-content">
-                    Manage your to-do list and track completed items.
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <i class="card-icon fsf-cloud"></i>
-                    <h3 class="card-title">Storage</h3>
-                </div>
-                <div class="card-content">
-                    45% of 1TB used. Upgrade plan for more storage.
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Add interactivity
-        document.querySelectorAll('.nav-item').forEach(item => {
-            item.addEventListener('click', function() {
-                document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
-    </script>
-</body>
-</html>
+.read-the-docs {
+  color: #888;
+}
