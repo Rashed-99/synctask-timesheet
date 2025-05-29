@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import, { useState, useEffect, useMemo } from 'react';
 
 export default function TimesheetWidget() {
   const API_BASE = 'https://synctask-api.onrender.com';
