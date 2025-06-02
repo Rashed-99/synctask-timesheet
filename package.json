@@ -11,11 +11,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@fluentui/react": "^8.122.19",
-    "@fluentui/react-components": "^9.64.0",
-    "@fluentui/react-icons": "^2.0.301",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "react-icons": "^4.12.0",
+    "react-scripts": "^5.0.1",
+    "@types/node": "^20.11.19",
+    "@types/react": "^18.2.56",
+    "@types/react-dom": "^18.2.19",
+    "typescript": "^5.3.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
